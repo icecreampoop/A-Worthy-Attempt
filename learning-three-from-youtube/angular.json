@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "learning-angular-from-youtube": {
+    "learning-three-from-youtube": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/learning-angular-from-youtube",
+            "outputPath": "dist/learning-three-from-youtube",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -57,10 +57,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "learning-angular-from-youtube:build:production"
+              "buildTarget": "learning-three-from-youtube:build:production"
             },
             "development": {
-              "buildTarget": "learning-angular-from-youtube:build:development"
+              "buildTarget": "learning-three-from-youtube:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -68,7 +68,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "learning-angular-from-youtube:build"
+            "buildTarget": "learning-three-from-youtube:build"
           }
         },
         "test": {

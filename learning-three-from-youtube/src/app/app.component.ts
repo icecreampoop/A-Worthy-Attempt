@@ -9,5 +9,5 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'learning-angular-from-youtube';
+  title = 'learning-three-from-youtube';
 }

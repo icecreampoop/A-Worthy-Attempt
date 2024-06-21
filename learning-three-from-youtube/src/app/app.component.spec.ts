@@ -14,16 +14,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have the 'learning-angular-from-youtube' title`, () => {
+  it(`should have the 'learning-three-from-youtube' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('learning-angular-from-youtube');
+    expect(app.title).toEqual('learning-three-from-youtube');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, learning-angular-from-youtube');
+    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, learning-three-from-youtube');
   });
 });
