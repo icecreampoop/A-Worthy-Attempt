@@ -1,5 +1,7 @@
 import { ElementRef, Injectable, NgZone, OnDestroy } from '@angular/core';
 import * as THREE from 'three';
+import Stats from 'three/examples/jsm/libs/stats.module';
+
 
 @Injectable({ providedIn: 'root' })
 export class EngineService implements OnDestroy {
@@ -8,6 +10,7 @@ export class EngineService implements OnDestroy {
   private camera: THREE.PerspectiveCamera;
   private scene: THREE.Scene;
   private light: THREE.AmbientLight;
+  private stats = new Stats();
 
   private cube: THREE.Mesh;
 
@@ -30,6 +33,7 @@ export class EngineService implements OnDestroy {
   public createScene(canvas: ElementRef<HTMLCanvasElement>): void {
     // The first step is to get the reference of the canvas element from our HTML document
     this.canvas = canvas.nativeElement;
+    document.body.appendChild(this.stats.dom)
 
     this.renderer = new THREE.WebGLRenderer({
       canvas: this.canvas,
@@ -53,9 +57,9 @@ export class EngineService implements OnDestroy {
     this.scene.add(this.light);
 
     const geometry = new THREE.TorusKnotGeometry();
-    const material = new THREE.MeshBasicMaterial({color: "rgb(144, 12, 63)"});
+    const material = new THREE.MeshBasicMaterial({ color: "rgb(144, 12, 63)" });
     this.cube = new THREE.Mesh(geometry, material);
-    
+
     const wireMat = new THREE.MeshBasicMaterial({
       color: 0xffffff,
       wireframe: true
@@ -90,6 +94,8 @@ export class EngineService implements OnDestroy {
     this.frameId = requestAnimationFrame(() => {
       this.render();
     });
+
+    this.stats.update()
 
     this.cube.rotation.x += 0.005;
     this.cube.rotation.y += 0.005;

@@ -34,8 +34,10 @@
     "@angular/compiler-cli": "~17.3.7",
     "@angular/language-service": "~17.3.7",
     "@types/node": "^20.12.8",
+    "@types/stats.js": "^0.17.3",
     "@types/three": "^0.155.0",
     "@types/webgl2": "0.0.7",
+    "stats.js": "^0.17.0",
     "typescript": "~5.4.5"
   }
 }
