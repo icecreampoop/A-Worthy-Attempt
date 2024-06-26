@@ -1,12 +1,14 @@
 import { ChangeDetectionStrategy, Component, ElementRef, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { EngineService } from './engine.service';
+import { StatsComponent } from "../components/stats/stats.component";
 
 @Component({
-  selector: 'app-engine',
-  standalone: true,
-  encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  templateUrl: './engine.component.html'
+    selector: 'app-engine',
+    standalone: true,
+    encapsulation: ViewEncapsulation.None,
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    templateUrl: './engine.component.html',
+    imports: [StatsComponent]
 })
 export class EngineComponent implements OnInit {
 

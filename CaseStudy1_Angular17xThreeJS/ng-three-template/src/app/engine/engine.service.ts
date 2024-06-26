@@ -1,6 +1,8 @@
 import { ElementRef, Injectable, NgZone, OnDestroy } from '@angular/core';
 import * as THREE from 'three';
 
+
+
 @Injectable({ providedIn: 'root' })
 export class EngineService implements OnDestroy {
   private canvas: HTMLCanvasElement;
@@ -52,9 +54,18 @@ export class EngineService implements OnDestroy {
     this.light.position.z = 10;
     this.scene.add(this.light);
 
-    const geometry = new THREE.BoxGeometry(1, 1, 1);
-    const material = new THREE.MeshBasicMaterial({color: 0x00ff00});
+    const geometry = new THREE.TorusKnotGeometry();
+    const material = new THREE.MeshBasicMaterial({ color: "rgb(144, 12, 63)" });
     this.cube = new THREE.Mesh(geometry, material);
+
+    const wireMat = new THREE.MeshBasicMaterial({
+      color: 0xffffff,
+      wireframe: true
+    });
+    const wireMesh = new THREE.Mesh(geometry, wireMat);
+    wireMesh.scale.setScalar(1.001);
+
+    this.cube.add(wireMesh);
     this.scene.add(this.cube);
 
   }
@@ -82,8 +93,8 @@ export class EngineService implements OnDestroy {
       this.render();
     });
 
-    this.cube.rotation.x += 0.01;
-    this.cube.rotation.y += 0.01;
+    this.cube.rotation.x += 0.005;
+    this.cube.rotation.y += 0.005;
     this.renderer.render(this.scene, this.camera);
   }
 
